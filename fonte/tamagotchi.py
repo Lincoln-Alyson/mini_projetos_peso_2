@@ -42,10 +42,13 @@ class Tamagotchi:
     def getEstaVivo(self):
         if self.energia > 0 and self.saciedade > 0 and self.limpeza > 0:
             return True
+        if self.idade > self.idade_maxima:
+            return False
         else:
             self.energia = 0
             self.limpeza = 0
             self.saciedade = 0
+
 
     def brincar(self):
         if self.getEstaVivo():
@@ -74,7 +77,7 @@ class Tamagotchi:
 
     def dormir(self):
         if self.getEstaVivo():
-            if self.energia == self.energia_maxima - 5:
+            if self.energia_maxima-5 >=self.energia > 0:
                 self.energia = self.energia_maxima
                 self.saciedade -= 2
                 return True
