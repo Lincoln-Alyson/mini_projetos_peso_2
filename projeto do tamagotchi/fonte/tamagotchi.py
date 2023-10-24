@@ -40,18 +40,17 @@ class Tamagotchi:
         return self.diamantes
 
     def getEstaVivo(self):
-        if self.energia > 0 and self.saciedade > 0 and self.limpeza > 0:
+        if self.energia > 0 and self.saciedade > 0 and self.limpeza > 0 and self.idade < self.idade_maxima:
             return True
-        if self.idade > self.idade_maxima:
-            return False
         elif self.energia < 0:
             self.energia = 0
         elif self.saciedade < 0:
             self.saciedade = 0
         elif self.limpeza < 0:
             self.limpeza = 0
-
-
+        elif self.idade > self.idade_maxima:
+            print("Tamagotchi morreu de velhice")
+            self.idade = self.idade_maxima
 
     def brincar(self):
         if self.getEstaVivo():
@@ -80,8 +79,10 @@ class Tamagotchi:
 
     def dormir(self):
         if self.getEstaVivo():
-            if self.energia_maxima-5 >=self.energia > 0:
-                self.energia += self.energia_maxima
+            if self.energia_maxima-5 >=self.energia:
+                turno = self.energia_maxima - self.energia
+                self.idade += turno
+                self.energia = self.energia_maxima
                 self.saciedade -= 2
                 return True
         else:
