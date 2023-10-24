@@ -1,6 +1,6 @@
 import unittest
 
-from src.passageiro import Passageiro
+from passageiro import Passageiro
 
 
 class TestPassageiro (unittest.TestCase):

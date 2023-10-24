@@ -1,5 +1,5 @@
-from src.passageiro import Passageiro
-from src.topic import Topic
+from passageiro import Passageiro
+from topic import Topic
 
 if __name__ == '__main__':
     topic = Topic(5, 2)

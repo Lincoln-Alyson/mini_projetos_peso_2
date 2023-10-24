@@ -1,18 +1,22 @@
-from src.passageiro import Passageiro
+from passageiro import Passageiro
 
 
 class Topic:
     def __init__(self, capacidade: int, qtdPrioritarios):
-        pass
+        self.capacidade = capacidade
+        self.qtdPrioritarios = qtdPrioritarios
+        self.vagas = capacidade
+        self.assentos_normais = capacidade - qtdPrioritarios
 
     def getNumeroAssentosPrioritarios(self):
-        return 0
+        return self.qtdPrioritarios
 
     def getNumeroAssentosNormais(self):
-        return 0
+        return self.capacidade - self.qtdPrioritarios
 
     def getPassageiroAssentoNormal(self, lugar):
-        return None
+        pass
+
 
     def getPassageiroAssentoPrioritario(self, lugar):
         return None
