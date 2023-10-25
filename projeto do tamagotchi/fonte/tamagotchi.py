@@ -54,6 +54,7 @@ class Tamagotchi:
 
     def brincar(self):
         if self.getEstaVivo():
+            print("Tamagotchi esta brincando")
             self.energia -= 2
             self.saciedade -= 1
             self.limpeza -= 3
